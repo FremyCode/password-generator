@@ -5,6 +5,7 @@ import PasswordImage from "../assets/images/access-hand-key-icon.svg";
 import { Checkbox } from "./Checkbox";
 
 export const PasswordGenerator = () => {
+  const [password, setPassword] = useState<string>("")
   const [passwordStrength, setPasswordStrength] = useState<string>("Strong");
   const [passwordLength, setPasswordLength] = useState<number>(12);
   const passwordOptions = [
@@ -15,13 +16,24 @@ export const PasswordGenerator = () => {
   ];
 
   function handlePasswordGen() {
+    const length = passwordLength; // Change this value to set the desired length of the random string
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let randomString = "";
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomString += characters.charAt(randomIndex);
+    }
+
+    setPassword(randomString)
 
   }
 
   useEffect(() => {
     console.log("Length: ", passwordLength)
     console.log("Strength: ", passwordStrength)
-  }, [])
+    console.log("Password: ", password)
+  }, [password])
   
 
   return (
@@ -46,9 +58,10 @@ export const PasswordGenerator = () => {
             type="range"
             id="passwordLength"
             name="passwordLengthRange"
-            min="12"
-            max="64"
-            step="1"
+            min={12}
+            max={64}
+            step={1}
+            onChange={(e) => setPasswordLength(parseInt(e.target.value))}
           />
         </div>
         <Checkbox options={passwordOptions} />
