@@ -26,7 +26,7 @@ export const PasswordGenerator = () => {
 
   return (
     <>
-      <div className="bg-gray-500 h-full mx-[10dvw] p-5">
+      <div className="bg-gray-500 h-full mx-[30dvw] p-5">
         <Image
           src={PasswordImage}
           alt="Password generator for all your passwordy needs"
