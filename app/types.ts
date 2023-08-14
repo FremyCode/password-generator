@@ -1,8 +1,9 @@
 export type CheckboxProps = {
-    options: CheckboxOption[]
+    options: CheckboxOption[];
+    updateOptions: Function;
 }
 
 export type CheckboxOption = {
-    value: string | number;
+    value: boolean;
     label: string;
 }
