@@ -84,7 +84,7 @@ export const PasswordGenerator = () => {
 
   return (
     <>
-      <div className="bg-gray-800 h-full mx-[30dvw] p-5 flex flex-col items-center rounded-xl">
+      <div className="bg-gray-800 h-fit w-fit mx-auto my-[16dvh] flex flex-col items-center rounded-xl">
         <Image
           src={PasswordImage}
           alt="Password generator for all your passwordy needs"
@@ -100,12 +100,12 @@ export const PasswordGenerator = () => {
           <input
             type="text"
             value={password}
-            className="text-black w-[25dvw] h-[3dvh] text-center"
+            className="text-black w-[25dvw] h-[3dvh] text-center mx-5"
             readOnly={true}
           />
           <button
             onClick={() => copyToClipboard(password)}
-            className="rounded-full bg-gray-500 px-5 py-2 mx-5"
+            className="rounded-lg font-bold bg-cyan-700 px-5 py-2 mr-5"
           >
             Copy
           </button>
